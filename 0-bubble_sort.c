@@ -19,24 +19,27 @@ void swap_ints(int *a, int *b)
  * bubble_sort - Sort an array of integers in ascending order.
  * @array: An array of integers to sort.
  * @size: The size of the array.
- * Description: Prints the array after each swap.
  */
 void bubble_sort(int *array, size_t size)
 {
+	size_t x, len = size;
+	bool bubbly = false;
 
-	size_t x, index, temp = 0;
-
-	if (size < 2)
+	if (array == NULL || size < 2)
 		return;
-	for (x = 0; x < size; x++)
-		for (index = 0; index < size; index++)
+
+	while (bubbly == false)
+	{
+		bubbly = true;
+		for (x = 0; x < len - 1; x++)
 		{
-			if (array[index] > array[index + 1] && array[index + 1])
+			if (array[x] > array[x + 1])
 			{
-			temp = array[index];
-			array[index] = array[index + 1];
-			array[index + 1] = temp;
-			print_array(array, size);
+				swap_ints(array + x, array + x + 1);
+				print_array(array, size);
+				bubbly = false;
 			}
 		}
+		len--;
+	}
 }
