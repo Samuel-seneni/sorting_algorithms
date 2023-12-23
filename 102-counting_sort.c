@@ -8,15 +8,14 @@
  */
 int get_max(int *array, int size)
 {
-        int max, x;
-
-        for (max = array[0], x = 1; x < size; x++)
-        {
-                if (array[x] > max)
-                        max = array[x];
-        }
-
-        return (max);
+	int max, x;
+	
+	for (max = array[0], x = 1; x < size; x++)
+	{
+		if (array[x] > max)
+			max = array[x];
+	}
+	return (max);
 }
 /**
  * counting_sort - sorts an array of integers using the Counting sort algorithm
